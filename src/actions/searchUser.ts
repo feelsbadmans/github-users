@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_ERROR } from '../types/reducerTypes';
 
-export function fetchData() {
+const fetchData = (query : string) => {
     return (dispatch : any)  => {
         dispatch(fetchDataStart());
-        const url = "https://api.github.com/search/users?q=feelsbadm+in:user&per_page=10&page=1";
+        const url = `https://api.github.com/search/users?q=${query}+in:user&per_page=10&page=1`;
         axios
         .get(url)
         .then(response => {
@@ -31,3 +31,5 @@ const fetchDataError = (error : object) => ({
         error
     }
 });
+
+export default fetchData;

@@ -4,7 +4,8 @@ const initialState = {
     loading: false,
     users: {
         incomplete_results: false,
-        items: []
+        items: [],
+        total_count: 0
     },
     error: null
 };
