@@ -8,14 +8,23 @@ body {
 }
 
 .image{
-  position: absolute;
-  left: 20px;
-  top: 20px;
   width: 40px;
   height: 40px;
 }
 
-.container {
+.button-container {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.body-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -26,12 +35,36 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(251, 255, 255);
+  background-color: #2d2e35;
 }
 
+$width-page-container: 80%;
+$height-page-container: 90%;
 
-.search-container{
+.page-container {
   position: relative;
   display: flex;
-  max-width: 1024px;
+  background-color: #f7ffff;
+  flex-direction: column;
+  width: $width-page-container;
+  height: $height-page-container; 
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 10px;
 }
+
+$width-page-content: 32%;
+
+.home-content {
+  display: flex;
+  padding: 30px 10px;
+  align-items: center;
+  justify-content: space-around;
+  width: $width-page-content;
+  padding: 15px 30px;
+}
+
+
+
+

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import fetchDataReducer from "./fetchDataReducer";
+import fetchUsersReducer from "./fetchUsersReducer";
 
 const rootReducer = combineReducers({
-    fetchDataReducer
+    fetchUsersReducer
 })
 
 export type RootState= ReturnType<typeof rootReducer>;

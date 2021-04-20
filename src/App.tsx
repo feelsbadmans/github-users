@@ -7,13 +7,16 @@ import UserPage from './pages/UserPage';
 
 const App : React.FC = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component = {Home}/>
-        <Route exact path="/searchresult" component = {SearchResult}/>
-        <Route exact path="/userpage" component = {UserPage}/>
-      </Switch>
-    </Router>
+    <div className="body-container">
+      <Router>
+        <Switch>
+          <Route exact path="/" component = {Home}/>
+          <Route exact path="/searchresult" component = {SearchResult}/>
+          <Route exact path="/userpage" component = {UserPage}/>
+        </Switch>
+      </Router>
+    </div>
+    
   );
 }
 

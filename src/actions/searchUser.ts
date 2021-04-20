@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_ERROR } from '../types/reducerTypes';
+import { FETCH_USERS_START, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR } from '../types/reducerTypes';
 
-const fetchData = (query : string) => {
+const fetchData = (query : string, per_page : number, page : number) => {
+    console.log("lol");
     return (dispatch : any)  => {
-        dispatch(fetchDataStart());
-        const url = `https://api.github.com/search/users?q=${query}+in:user&per_page=10&page=1`;
+        const url = `https://api.github.com/search/users?q=${query}+in:user&per_page=${per_page}&page=${page}`;
         axios
         .get(url)
         .then(response => {
@@ -15,18 +15,18 @@ const fetchData = (query : string) => {
 }
 
 const fetchDataStart = () => ({
-    type: FETCH_DATA_START
+    type: FETCH_USERS_START
 })
 
 const fetchDataSuccess = (data : object) => ({
-    type: FETCH_DATA_SUCCESS,
+    type: FETCH_USERS_SUCCESS,
     payload: {
         ...data
     }
 });
 
 const fetchDataError = (error : object) => ({
-    type: FETCH_DATA_ERROR,
+    type: FETCH_USERS_ERROR,
     payload: {
         error
     }

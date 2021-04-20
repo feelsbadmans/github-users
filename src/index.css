@@ -6,14 +6,24 @@ body {
 }
 
 .image {
-  position: absolute;
-  left: 20px;
-  top: 20px;
   width: 40px;
   height: 40px;
 }
 
-.container {
+.button-container {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.button-container:hover {
+  cursor: pointer;
+}
+
+.body-container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,14 +43,42 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fbffff;
+  background-color: #2d2e35;
 }
 
-.search-container {
+.page-container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 1024px;
+  background-color: #f7ffff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  height: 90%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.home-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 32%;
+  padding: 15px 30px;
 }
 /*# sourceMappingURL=index.css.map */

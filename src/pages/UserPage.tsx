@@ -1,18 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const UserPage : React.FC = () => {
     console.log("user");
+    let history = useHistory();
+    const goBack = () => {
+        history.goBack();
+    };
     return (
-        <div className="container">
-            <Link to="/">
+        <>
+            <button className="button-container" onClick={goBack}>
                     <img className="image" src="/images/back_arrow_light.png"/>
-            </Link>
+            </button>
             789
-            <Link to="/searchresult">
-                <h1>biba</h1>
-            </Link>
-        </div>
+        </>
     );
 }
 
