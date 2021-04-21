@@ -301,12 +301,12 @@ a {
 }
 
 .user-page-item-column h3 {
-  margin: 0px;
+  margin: 0px 0px 30px;
 }
 
 .user-page-item-column p {
   font-size: large;
-  margin: 0px 0px 10px;
+  margin: 0px;
 }
 
 .user-page-item-row {
