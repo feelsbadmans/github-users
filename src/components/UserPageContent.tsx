@@ -37,9 +37,7 @@ const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
                 <div className="user-page-item-row">
                     <div className="user-page-item-column">
                         <img className="user-image" src={user.avatar_url} />
-                        <a href={user.html_url} target="_blank" title="Open in GitHub">
-                            <h1>{user.login}</h1>
-                        </a>
+                        <h1>{user.login}</h1>
                         <h3>{user.name}</h3>
                         <p>{user.location}</p>
                         <p>{user.email}</p>
@@ -51,8 +49,12 @@ const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
                         <p>Following: {user.following}</p>
                         <p>Created: {user.created_at.slice(0, 10) + " at " + user.created_at.slice(11, 19)}</p>
                         <p>Last Update: {user.updated_at.slice(0, 10) + " at " + user.updated_at.slice(11, 19)}</p>
+                        <a href={user.html_url} target="_blank" title="Open in GitHub">
+                            <img className="github-logo" src="/images/GitHub_Logo.png" />
+                        </a>
                     </div>
                 </div>
+
             </div>
         </>
     );

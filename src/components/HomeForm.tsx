@@ -38,7 +38,7 @@ const HomeForm: React.FC = () => {
     return (
         <>
             <div className="form-container">
-                <textarea ref={inputRef} value={username} placeholder="Nickname" onChange={(e) => setUsername(e.target.value)} onKeyPress={enterPress}
+                <textarea ref={inputRef} value={username} placeholder="Type here" onChange={(e) => setUsername(e.target.value)} onKeyPress={enterPress}
                     onKeyUp={escapePress} />
                 <ul style={{ visibility: username != "" ? "visible" : "hidden", height: "150px" }}>
                     {
