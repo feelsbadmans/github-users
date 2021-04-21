@@ -14,7 +14,7 @@ const fetchUsers = (query: string, per_page: number, page: number) => {
     }
 }
 
-export const resetStore = () => ({
+export const resetStoreUsers = () => ({
     type: FETCH_USERS_DEFAULT
 })
 

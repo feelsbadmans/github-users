@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import fetchUsersReducer from "./fetchUsersReducer";
+import fetchUserPageReducer from "./fetchUserPageReducer";
 
 const rootReducer = combineReducers({
-    fetchUsersReducer
+    fetchUsersReducer,
+    fetchUserPageReducer
 })
 
 export type RootState= ReturnType<typeof rootReducer>;

@@ -1,47 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
-import fetchUsers, { resetStore } from "../actions/actionsFetchUsers";
+import { Link } from "react-router-dom";
+import fetchUsers from "../actions/actionsFetchUsers";
+import { getArrayPages, getPerPage } from "../functions";
 import { useTypedSelector, useWindowHeight } from "../hooks/hooks";
 import { propsSearchResult } from "../types/interfaces";
 import SearchResultUser from "./SearchResultUser";
 
-const getPerPage = (height: number) => {
-    if (height > 800) return 10;
-    if (height > 600) return 8;
-    return 6;
-}
 
-const getArrayPages = (pagesCount: number, currentPage: number) => {
-    let pages = [];
-    if (pagesCount > 10) {
-        if (currentPage > 5) {
-            if (currentPage > pagesCount - 5) {
-                for (let i = pagesCount - 9; i <= pagesCount; i++) pages.push(i);
-            }
-            else {
-                for (let i = currentPage - 4; i <= currentPage + 5; i++) pages.push(i);
-            }
-        }
-        else {
-            for (let i = 1; i <= 10; i++) pages.push(i);
-        }
-    }
-    else {
-        for (let i = 1; i <= pagesCount; i++) pages.push(i);
-    }
-    return pages;
-}
 
 const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResult) => {
     const dispatch = useDispatch();
     const { users, loading, error } = useTypedSelector(state => state.fetchUsersReducer);
-
     const height: number = useWindowHeight();
-    const [perPage, setPerPage] = useState<number>(10);
+    const [perPage, setPerPage] = useState<number>(8);
     const [currentPage, setCurrentPage] = useState<number>(1);
     let pagesCount = Math.ceil(users.total_count / perPage);
     let pages: Array<number> = getArrayPages(pagesCount, currentPage);
+
     useEffect(() => {
         setPerPage(getPerPage(height));
         pagesCount = Math.ceil(users.total_count / perPage);
@@ -50,8 +26,6 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
     }, [getPerPage(height)])
 
     useEffect(() => {
-        console.log("didiwin?");
-        console.log(pages, pagesCount);
         pages = getArrayPages(pagesCount, currentPage);
         if (props.username != "") dispatch(fetchUsers(props.username, perPage, currentPage));
     }, [currentPage])
@@ -60,7 +34,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
     if (error) {
         return (
             <>
-                <Link to="/">
+                <Link to="/" title="Go back">
                     <div className="button-container">
                         <img className="image" src="/images/back_arrow_light.png" />
                     </div>
@@ -73,7 +47,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
     if (props.username === "") {
         return (
             <>
-                <Link to="/">
+                <Link to="/" title="Go back">
                     <div className="button-container">
                         <img className="image" src="/images/back_arrow_light.png" />
                     </div>
@@ -87,7 +61,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
     if (users.total_count === 0 && !loading) {
         return (
             <>
-                <Link to="/">
+                <Link to="/" title="Go back">
                     <div className="button-container">
                         <img className="image" src="/images/back_arrow_light.png" />
                     </div>
@@ -100,7 +74,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
     if (loading) {
         return (
             <>
-                <Link to="/">
+                <Link to="/" title="Go back">
                     <div className="button-container">  
                         <img className="image" src="/images/back_arrow_light.png"/>
                     </div>
@@ -111,7 +85,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
 
     return (
         <>
-            <Link to="/">
+            <Link to="/" title="Go back">
                 <div className="button-container">
                     <img className="image" src="/images/back_arrow_light.png" />
                 </div>

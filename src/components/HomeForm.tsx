@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import fetchUsers, { resetStore } from "../actions/actionsFetchUsers";
+import fetchUsers, { resetStoreUsers } from "../actions/actionsFetchUsers";
 import { useTypedSelector } from "../hooks/hooks";
 import HomeSuggestUser from "./HomeSuggestUser";
 
@@ -15,7 +15,7 @@ const HomeForm: React.FC = () => {
     const dispatch = useDispatch();
 
     if (username === "") {
-        dispatch(resetStore());
+        dispatch(resetStoreUsers());
     }
 
     useEffect(() => {

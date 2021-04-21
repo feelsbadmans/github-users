@@ -33,6 +33,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  padding-top: 100px;
   width: 100%;
   height: 100%;
   background-color: #2d2e35;
@@ -44,7 +45,7 @@ $height-page-container: 100%;
 .page-container {
   position: relative;
   display: flex;
-  margin-top: 5%;
+  
   background-color: #f9ffff;
   flex-direction: column;
   width: $width-page-container;
@@ -135,7 +136,7 @@ a {
   }
  }
 
- $search_image_d: 50px;
+ $search_image_d: 46px;
 
  .search-result-image {
   width: $search_image_d;
@@ -151,14 +152,14 @@ a {
   width: 100%;
   align-items: center;
   font-size: x-large;
-  height: 70%;
+  height: 55%;
  }
 
  .search-result-item {
   display: flex;
   font-size: x-large;
   width: 70%;
-  padding: 5px 0;
+  padding: 5px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.493);
   flex-direction: row;
   align-items: center;
@@ -202,3 +203,43 @@ a {
   color: whitesmoke;
  }
 
+ .user-page-content {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+  font-size: x-large;
+  height: 55%;
+ }
+
+ .user-page-item-column {
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  font-size: x-large;
+  h1 {
+    margin: 0px;
+  }
+  p {
+    margin: 0px;
+  }
+ }
+
+ .user-page-item-row {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  justify-content: space-around;
+  align-items: center;
+  font-size: x-large;
+ }
+
+ .user-image {
+   height: 200px;
+   width: 200px;
+   border: 1px solid rgba(255, 255, 255, 0);
+   border-radius: 100px;
+ }
