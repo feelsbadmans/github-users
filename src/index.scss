@@ -213,7 +213,7 @@ a {
  }
 
  .user-page-item-column {
-  margin: 0 30px;
+  margin: 0 100px;
   display: flex;
   flex-direction: column;
   width: auto;
@@ -222,13 +222,17 @@ a {
   h1 {
     margin: 0px;
   }
-  p {
+  h3 {
     margin: 0px;
+  }
+  p {
+    font-size: large;
+    margin: 0px 0px 10px;
   }
  }
 
  .user-page-item-row {
-  margin: 15px;
+  margin: 15px 0;
   display: flex;
   flex-direction: row;
   width: auto;

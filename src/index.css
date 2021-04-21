@@ -281,7 +281,7 @@ a {
 }
 
 .user-page-item-column {
-  margin: 0 30px;
+  margin: 0 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -300,12 +300,17 @@ a {
   margin: 0px;
 }
 
-.user-page-item-column p {
+.user-page-item-column h3 {
   margin: 0px;
 }
 
+.user-page-item-column p {
+  font-size: large;
+  margin: 0px 0px 10px;
+}
+
 .user-page-item-row {
-  margin: 15px;
+  margin: 15px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

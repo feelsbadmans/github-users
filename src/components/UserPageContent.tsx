@@ -40,7 +40,7 @@ const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
                         <a href={user.html_url} target="_blank" title="Open in GitHub">
                             <h1>{user.login}</h1>
                         </a>
-                        <p>{user.name}</p>
+                        <h3>{user.name}</h3>
                         <p>{user.location}</p>
                         <p>{user.email}</p>
                         <p>{user.company}</p>
