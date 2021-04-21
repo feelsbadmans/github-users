@@ -1,7 +1,7 @@
-import { FETCH_USERS_START, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR } from "../types/reducerTypes";
+import { FETCH_USERS_START, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR, FETCH_USERS_DEFAULT } from "../types/reducerTypes";
 
 const initialState = {
-    loading: false,
+    loading: true,
     users: {
         incomplete_results: false,
         items: [],
@@ -9,6 +9,7 @@ const initialState = {
     },
     error: null
 };
+
 
 const fetchUsersReducer = (state = initialState, action : any) => {
     switch(action.type){
@@ -31,6 +32,8 @@ const fetchUsersReducer = (state = initialState, action : any) => {
                 loading:false,
                 error: action.payload.error
             }
+        case FETCH_USERS_DEFAULT:
+            return initialState;
         default:
             return state;
     }
