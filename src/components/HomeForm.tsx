@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import fetchUsers, { resetStoreUsers } from "../actions/actionsFetchUsers";
 import { useTypedSelector } from "../hooks/hooks";
 import HomeSuggestUser from "./HomeSuggestUser";
@@ -30,7 +30,6 @@ const HomeForm: React.FC = () => {
 
     const enterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key.toLowerCase() === "enter") {
-            console.log("enter");
             history.push("/searchresult", { query: username });
         }
     };

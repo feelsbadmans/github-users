@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import fetchUsers from "../actions/actionsFetchUsers";
-import { getArrayPages, getPerPage } from "../functions";
-import { useTypedSelector, useWindowHeight } from "../hooks/hooks";
+import { getArrayPages } from "../functions";
+import { useTypedSelector } from "../hooks/hooks";
 import { propsSearchResult } from "../types/interfaces";
 import SearchResultUser from "./SearchResultUser";
 

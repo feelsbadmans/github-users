@@ -6,17 +6,17 @@ import { useTypedSelector } from "../hooks/hooks";
 import { propsUser } from "../types/interfaces";
 
 const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
-    console.log(props.user_api_url);
     let history = useHistory();
     const goBack = () => {
         history.goBack();
     };
+
     const dispatch = useDispatch();
     const { user, loading } = useTypedSelector(state => state.fetchUserPageReducer);
     useEffect(() => {
         dispatch(fetchUserPage(props.user_api_url));
     }, []);
-    console.log(history);
+
     if (loading) {
         return (
             <>

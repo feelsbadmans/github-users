@@ -1,10 +1,3 @@
-export const getPerPage = (height: number) => {
-    if (height > 800) return 8;
-    else if (height > 600 && height <= 800) return 6;
-    else if (height > 400 && height <= 600) return 4;
-    else return 3;
-}
-
 export const getArrayPages = (pagesCount: number, currentPage: number) => {
     let pages = [];
     if (pagesCount > 10) {
