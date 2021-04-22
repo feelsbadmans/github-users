@@ -10,7 +10,7 @@ const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
     const goBack = () => {
         history.goBack();
     };
-
+    
     const dispatch = useDispatch();
     const { user, loading } = useTypedSelector(state => state.fetchUserPageReducer);
     useEffect(() => {
@@ -39,9 +39,9 @@ const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
                         <img className="user-image" src={user.avatar_url} />
                         <h1>{user.login}</h1>
                         <h3>{user.name}</h3>
-                        <p>{user.location}</p>
-                        <p>{user.email}</p>
-                        <p>{user.company}</p>
+                        <h5>{user.location}</h5>
+                        <h5>{user.email}</h5>
+                        <h6>{user.company}</h6>
                     </div>
                     <div className="user-page-item-column" style={{ alignItems: "baseline" }}>
                         <p>Repositories: {user.public_repos}</p>

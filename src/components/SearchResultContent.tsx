@@ -12,7 +12,7 @@ import SearchResultUser from "./SearchResultUser";
 const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResult) => {
     const dispatch = useDispatch();
     const { users, loading, error } = useTypedSelector(state => state.fetchUsersReducer);
-    const perPage = 8;
+    const perPage: number = 8;
     const [currentPage, setCurrentPage] = useState<number>(1);
     const pagesCount = Math.ceil(users.total_count / perPage);
     let pages: Array<number> = getArrayPages(pagesCount, currentPage);
@@ -44,7 +44,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
                         <img className="image" src="/images/back_arrow_light.png" />
                     </div>
                 </Link>
-                <h1>Oops... I can't find user with no nickname...</h1>
+                <h1>Oops... We can't find user with no nickname...</h1>
             </>
         );
 
@@ -58,7 +58,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
                         <img className="image" src="/images/back_arrow_light.png" />
                     </div>
                 </Link>
-                <h1>I couldn't find any users with nickname '{props.username}'</h1>
+                <h1>We couldn't find any users matching '{props.username}'</h1>
             </>
         );
     }
@@ -82,7 +82,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
                     <img className="image" src="/images/back_arrow_light.png" />
                 </div>
             </Link>
-            <h1>Searching result</h1>
+            <h1>Searched {users.total_count} users</h1>
             <div className="search-result-content">
                 {
                     users.items.map((el: any) => {
@@ -95,7 +95,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
                 }
             </div>
             <div className="paginator">
-                {
+                {   
                     pages.map((page: number, index: number) =>
                         <span
                             className={page === currentPage ? "current-page" : "page"}

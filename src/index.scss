@@ -14,6 +14,8 @@ body {
 }
 
 .button-container {
+  padding: 0;
+  margin: 0;
   position: absolute;
   left: 20px;
   top: 20px;
@@ -157,7 +159,7 @@ a {
   width: 100%;
   align-items: center;
   font-size: x-large;
-  height: 55%;
+  height: 580px;
  }
 
  .search-result-item {
@@ -183,6 +185,7 @@ a {
    flex-direction: row;
    align-items: center;
    justify-content: center;
+   margin-bottom: 60px;
  }
 
  .page {
@@ -192,7 +195,9 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.493);
   background: none;
   transition: 0.5s;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
    &:hover{
     background-color:  rgb(240, 240, 240);
     cursor: pointer;
@@ -203,6 +208,9 @@ a {
   height: 50%;
   border: 1px solid #2d2e35;
   background-color: #2d2e35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.5s;
   color: #f9ffff;
  }
@@ -223,10 +231,10 @@ a {
   width: auto;
   align-items: center;
   font-size: x-large;
-  h1 {
+  h1, h3, h5 {
     margin: 0px;
   }
-  h3 {
+  h6 {
     margin: 0px 0px 30px;
   }
   p {
@@ -282,18 +290,13 @@ a {
 }
 
 @media screen and (max-width: 800px) {
-  .user-page-item-column{
-    margin: 0 30px;
-    width: 290px;
+  .user-page-item-column, .user-page-item-column p{
+    margin: 0 20px;
+    font-size: 12px;
+    width: 200px;
   }
 }
 
-@media screen and (max-width: 700px) {
-  .user-page-item-column{
-    margin: 0 10px;
-    width: 290px;
-  }
-}
 
  @media screen and (max-width: 600px) {
   .image{
@@ -305,11 +308,31 @@ a {
   }
   .page, .current-page {
     font-size: 12px;
+    width: 10%;
   }
-  .user-page-item-column, .user-page-item-column p{
-    margin: 0 20px;
+  
+  .home-content {
+    width: 340px;
+  }
+  .search-result-item{
+    padding: 5px 15px;
+  }
+
+  .suggest-image{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+  }
+  textarea, .search-button, .home-content, .search-result-item, .page-container{
     font-size: 12px;
-    width: 200px;
+  }
+  .search-result-image{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+  }
+  .search-result-content{
+    height: 330px;
   }
   .user-image {
     width: 150px;
@@ -328,38 +351,31 @@ a {
   .body-container{
     padding-top: 70px;
   }
+  .user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+  }
   .home-content {
-    width: 350px;
+    width: 320px;
+  }
+  .user-page-content{
+    height: 80%;
   }
   .page-container{
-    padding-top: 15%;
-    justify-content: flex-start;
     align-items: center;
   }
-  textarea, .search-button, .home-content, .search-result-item, .page-container{
-    font-size: 12px;
-  }
-  .search-result-item{
-    padding: 5px 15px;
-  }
-  .paginator{
-    margin-top: 5px;
-  }
   textarea{
-    padding: 0 10px;
-  }
-  textarea, .search-button{
+    padding: 5px 10px 0;
     height: 20px;
   }
-  .suggest-image{
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
+  .search-button{
+    height: 24px;
   }
-  .search-result-image{
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
+  .suggest-image{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
   }
   .user-page-item-row{
     flex-direction: column;
@@ -375,7 +391,10 @@ a {
 @media screen and (max-width: 400px) {
   .home-content {
     font-size: 10px;
-    width: 300px; 
+    width: 250px; 
+  }
+  textarea, .search-button, .search-result-item, .page-container {
+    font-size: 10px;
   }
   .home-image {
     width: 80px;
@@ -390,12 +409,12 @@ a {
 }
 
 @media screen and (max-width: 350px) {
+  .search-result-content {
+    height: 280px;
+  }
   .image{
     width: 20px;
     height: 20px;
-  }
-   textarea, .search-button, .search-result-item, .page-container {
-    font-size: 12px;
   }
   .home-content{
     width: 250px; 
@@ -409,9 +428,6 @@ a {
     border-radius: 15px;
   }
   .page, .current-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 10px;
   }
 

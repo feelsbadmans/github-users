@@ -1,16 +1,16 @@
 export const getArrayPages = (pagesCount: number, currentPage: number) => {
     let pages = [];
-    if (pagesCount > 10) {
-        if (currentPage > 5) {
-            if (currentPage > pagesCount - 5) {
-                for (let i = pagesCount - 9; i <= pagesCount; i++) pages.push(i);
+    if (pagesCount > 5) {
+        if (currentPage > 3) {
+            if (currentPage > pagesCount - 3) {
+                for (let i = pagesCount - 4; i <= pagesCount; i++) pages.push(i);
             }
             else {
-                for (let i = currentPage - 4; i <= currentPage + 5; i++) pages.push(i);
+                for (let i = currentPage - 2; i <= currentPage + 2; i++) pages.push(i);
             }
         }
         else {
-            for (let i = 1; i <= 10; i++) pages.push(i);
+            for (let i = 1; i <= 5; i++) pages.push(i);
         }
     }
     else {
