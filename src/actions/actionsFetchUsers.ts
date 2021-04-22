@@ -4,9 +4,9 @@ import { FETCH_USERS_SUCCESS, FETCH_USERS_ERROR, FETCH_USERS_DEFAULT, FETCH_USER
 const fetchUsers = (query: string, per_page: number, page: number) => {
     return (dispatch: any) => {
         dispatch(fetchUsersStart());
-        const url = `https://api.github.com/search/users?q=${query}+in:user&per_page=${per_page}&page=${page}&access_token=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`;
+        const url = `https://api.github.com/search/users?q=${query}+in:user&per_page=${per_page}&page=${page}`;
         axios
-            .get(url)
+            .get(url,{headers:{'Autorization':'token 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'}})
             .then(response => {
                 dispatch(fetchUsersSuccess(response.data));
             })
