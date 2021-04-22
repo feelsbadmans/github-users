@@ -6,7 +6,7 @@ const fetchUsers = (query: string, per_page: number, page: number) => {
         dispatch(fetchUsersStart());
         const url = `https://api.github.com/search/users?q=${query}+in:user&per_page=${per_page}&page=${page}`;
         axios
-            .get(url,{headers:{Autorization:'token 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'}})
+            .get(url,{headers:{'Authorization':'token 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'}})
             .then(response => {
                 dispatch(fetchUsersSuccess(response.data));
             })
