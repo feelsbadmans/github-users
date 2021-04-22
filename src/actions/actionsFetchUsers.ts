@@ -9,7 +9,7 @@ const fetchUsers = (query: string, per_page: number, page: number) => {
             .get(url,
                 {
                     headers:
-                        { 'Authorization': 'token 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' }
+                        { 'Authorization': `token ${process.env.REACT_APP_GITHUBAPI_KEY}` }
                 })
             .then(response => {
                 dispatch(fetchUsersSuccess(response.data));
