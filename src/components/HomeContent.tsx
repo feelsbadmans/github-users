@@ -5,10 +5,10 @@ const HomeContent: React.FC = () => {
     return (
         <>
             <div className="home-content">
-                <img src="/images/github.png" />
+                <img src="/images/github.png" className="home-image" />
                 <h1>Find GitHub User</h1>
             </div>
-            <div className="home-content" style={{ alignItems: "baseline" }}>
+            <div className="home-content" style={{ alignItems: "flex-start" }}>
                 <HomeForm />
             </div>
         </>

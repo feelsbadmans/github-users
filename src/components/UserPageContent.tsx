@@ -16,7 +16,7 @@ const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
     useEffect(() => {
         dispatch(fetchUserPage(props.user_api_url));
     }, []);
-    console.log(user);
+    console.log(history);
     if (loading) {
         return (
             <>
@@ -35,7 +35,7 @@ const UserPageContent: React.FC<propsUser> = (props: propsUser) => {
             </button>
             <div className="user-page-content">
                 <div className="user-page-item-row">
-                    <div className="user-page-item-column">
+                    <div className="user-page-item-column" style={{ textAlign: "center" }}>
                         <img className="user-image" src={user.avatar_url} />
                         <h1>{user.login}</h1>
                         <h3>{user.name}</h3>

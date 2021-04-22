@@ -79,7 +79,12 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 22%;
+  width: 400px;
+}
+
+.home-image {
+  width: 120px;
+  height: 120px;
 }
 
 textarea {
@@ -116,14 +121,14 @@ textarea:focus {
 
 ul {
   padding: 5px 0 0;
-  margin: 0;
+  margin: 10px 0;
 }
 
 .search-button {
   font-size: large;
   position: relative;
   width: 20%;
-  height: 36px;
+  height: 34px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,7 +162,6 @@ a {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  margin: 2px 0;
   padding: 5px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.493);
   -webkit-box-orient: horizontal;
@@ -343,5 +347,178 @@ a {
   padding: 40px 0 0;
   width: 140px;
   height: 54px;
+}
+
+@media screen and (max-width: 1400px) {
+  .user-page-item-column {
+    margin: 0 70px;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page, .current-page {
+    font-size: 14px;
+    width: 8%;
+  }
+  .user-page-item-column {
+    margin: 0 70px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .user-page-item-column {
+    margin: 0 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .user-page-item-column {
+    margin: 0 30px;
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .user-page-item-column {
+    margin: 0 10px;
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image {
+    width: 30px;
+    height: 30px;
+  }
+  .paginator {
+    width: 60%;
+  }
+  .page, .current-page {
+    font-size: 12px;
+  }
+  .user-page-item-column, .user-page-item-column p {
+    margin: 0 20px;
+    font-size: 12px;
+    width: 200px;
+  }
+  .user-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+  }
+  .github-logo {
+    padding-top: 20px;
+    width: 100px;
+    height: 40px;
+    margin-left: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .body-container {
+    padding-top: 70px;
+  }
+  .home-content {
+    width: 350px;
+  }
+  .page-container {
+    padding-top: 15%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  textarea, .search-button, .home-content, .search-result-item, .page-container {
+    font-size: 12px;
+  }
+  .search-result-item {
+    padding: 5px 15px;
+  }
+  .paginator {
+    margin-top: 5px;
+  }
+  textarea {
+    padding: 0 10px;
+  }
+  textarea, .search-button {
+    height: 20px;
+  }
+  .suggest-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+  }
+  .search-result-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+  }
+  .user-page-item-row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .user-page-item-column {
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
+  .user-page-item-column p {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home-content {
+    font-size: 10px;
+    width: 300px;
+  }
+  .home-image {
+    width: 80px;
+    height: 80px;
+  }
+  .suggest-container {
+    padding: 2px 10px;
+  }
+  .search-result-item {
+    padding: 2px 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .image {
+    width: 20px;
+    height: 20px;
+  }
+  textarea, .search-button, .search-result-item, .page-container {
+    font-size: 12px;
+  }
+  .home-content {
+    width: 250px;
+  }
+  .paginator {
+    width: 70%;
+  }
+  .search-result-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+  }
+  .page, .current-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 10px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

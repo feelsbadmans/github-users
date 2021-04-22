@@ -12,18 +12,10 @@ import SearchResultUser from "./SearchResultUser";
 const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResult) => {
     const dispatch = useDispatch();
     const { users, loading, error } = useTypedSelector(state => state.fetchUsersReducer);
-    const height: number = useWindowHeight();
-    const [perPage, setPerPage] = useState<number>(8);
+    const perPage = 8;
     const [currentPage, setCurrentPage] = useState<number>(1);
-    let pagesCount = Math.ceil(users.total_count / perPage);
+    const pagesCount = Math.ceil(users.total_count / perPage);
     let pages: Array<number> = getArrayPages(pagesCount, currentPage);
-
-    useEffect(() => {
-        setPerPage(getPerPage(height));
-        pagesCount = Math.ceil(users.total_count / perPage);
-        pages = getArrayPages(pagesCount, currentPage);
-        if (props.username != "") dispatch(fetchUsers(props.username, perPage, currentPage));
-    }, [getPerPage(height)])
 
     useEffect(() => {
         pages = getArrayPages(pagesCount, currentPage);
