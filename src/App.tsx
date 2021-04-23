@@ -8,6 +8,7 @@ import UserPage from './pages/UserPage';
 const App : React.FC = () => {
   return (
     <div className="body-container">
+      <div className="header-block"></div>
       <Router>
         <Switch>
           <Route exact path="/" component = {Home}/>
