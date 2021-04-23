@@ -35,24 +35,24 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #2d2e35;
 }
 
 .header-block {
-  width: 100%;
-  height: 13%;
+  width: 100vw;
+  height: 13vh;
   background-color: #2d2e35;
 }
 
-$width-page-container: 100%;
-$height-page-container: 100%;
+$width-page-container: 100vw;
+$height-page-container: 87vh;
 
 .page-container {
   position: relative;
   display: flex;
-  
+  overflow:scroll;
   background-color: #f9ffff;
   flex-direction: column;
   width: $width-page-container;
@@ -195,7 +195,7 @@ a {
 
  .page {
   width: 4%;
-  height: 50%;
+  height: 1.75em;
   margin: 0 2px;
   border: 1px solid rgba(0, 0, 0, 0.493);
   background: none;
@@ -210,7 +210,7 @@ a {
  }
  .current-page{
   width: 4%;
-  height: 50%;
+  height: 1.75em;
   border: 1px solid #2d2e35;
   background-color: #2d2e35;
   display: flex;
