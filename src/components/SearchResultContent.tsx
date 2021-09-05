@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import fetchUsers from "../actions/actionsFetchUsers";
@@ -19,7 +20,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
 
     useEffect(() => {
         pages = getArrayPages(pagesCount, currentPage);
-        if (props.username != "") dispatch(fetchUsers(props.username, perPage, currentPage));
+        if (props.username !== "") dispatch(fetchUsers(props.username, perPage, currentPage));
     }, [currentPage])
 
 
