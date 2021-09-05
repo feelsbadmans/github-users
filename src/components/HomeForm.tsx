@@ -19,8 +19,8 @@ const HomeForm: React.FC = () => {
     }
 
     useEffect(() => {
-        if (username != "") dispatch(fetchUsers(username, 5, 1));
-    }, [username]);
+        if (username !== "") dispatch(fetchUsers(username, 5, 1));
+    }, [username, dispatch]);
 
     const escapePress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key.toLowerCase() === "escape") {
@@ -30,7 +30,7 @@ const HomeForm: React.FC = () => {
 
     const enterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key.toLowerCase() === "enter") {
-            history.push("/searchresult", { query: username });
+            history.push(`/searchresult/${username}`);
         }
     };
 
@@ -39,7 +39,7 @@ const HomeForm: React.FC = () => {
             <div className="form-container">
                 <textarea ref={inputRef} value={username} placeholder="Type here" onChange={(e) => setUsername(e.target.value)} onKeyPress={enterPress}
                     onKeyUp={escapePress} />
-                <ul style={{ visibility: username != "" ? "visible" : "hidden", height: "150px" }}>
+                <ul style={{ visibility: username !== "" ? "visible" : "hidden", height: "150px" }}>
                     {
                         users.items.map((el: any) => {
                             return <HomeSuggestUser username={el.login} profileImage={el.avatar_url} api_url={el.url} />
@@ -47,7 +47,7 @@ const HomeForm: React.FC = () => {
                     }
                 </ul>
             </div>
-            <Link to={{ pathname: "/searchresult", state: { query: username } }} className="search-button">
+            <Link to={`/searchresult/${username}`} className="search-button">
                 Find
             </Link>
         </>

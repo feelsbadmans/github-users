@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import fetchUsers from "../actions/actionsFetchUsers";
 import { getArrayPages } from "../functions";
 import { useTypedSelector } from "../hooks/hooks";
@@ -20,9 +20,8 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
 
     useEffect(() => {
         pages = getArrayPages(pagesCount, currentPage);
-        if (props.username !== "") dispatch(fetchUsers(props.username, perPage, currentPage));
-    }, [currentPage])
-
+        if (props.username) dispatch(fetchUsers(props.username, perPage, currentPage));
+    }, [currentPage]);
 
     if (error) {
         return (
@@ -37,7 +36,7 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
         );
     }
 
-    if (props.username === "") {
+    if (props.username === "" || !!users.length) {
         return (
             <>
                 <Link to="/" title="Go back">
@@ -87,11 +86,13 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
             <div className="search-result-content">
                 {
                     users.items.map((el: any) => {
-                        return <SearchResultUser
-                            username={el.login}
-                            profileImage={el.avatar_url}
-                            api_url={el.url}
-                        />
+                        return (
+                            <SearchResultUser
+                                username={el.login}
+                                profileImage={el.avatar_url}
+                                api_url={el.url}
+                            />
+                        )
                     })
                 }
             </div>
@@ -100,7 +101,8 @@ const SearchResultContent: React.FC<propsSearchResult> = (props: propsSearchResu
                     pages.map((page: number, index: number) =>
                         <span
                             className={page === currentPage ? "current-page" : "page"}
-                            onClick={() => { setCurrentPage(page) }}>{page}</span>
+                            onClick={() => { setCurrentPage(page) }}>{page}
+                        </span>
                     )
                 }
             </div>

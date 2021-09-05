@@ -12,8 +12,8 @@ const App : React.FC = () => {
       <Router>
         <Switch>
           <Route exact path="/" component = {Home}/>
-          <Route exact path="/searchresult" component = {SearchResult}/>
-          <Route exact path="/userpage" component = {UserPage}/>
+          <Route exact path="/searchresult/:username" component = {SearchResult}/>
+          <Route exact path="/userpage/:username" component = {UserPage}/>
         </Switch>
       </Router>
     </div>
