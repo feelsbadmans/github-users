@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import fetchUsers, { resetStoreUsers } from "../actions/actionsFetchUsers";
@@ -34,20 +34,34 @@ const HomeForm: React.FC = () => {
         }
     };
 
+    const onChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setUsername(event.target.value)
+    },[])
+
     return (
         <>
             <div className="form-container">
-                <textarea ref={inputRef} value={username} placeholder="Type here" onChange={(e) => setUsername(e.target.value)} onKeyPress={enterPress}
-                    onKeyUp={escapePress} />
-                <ul style={{ visibility: username !== "" ? "visible" : "hidden", height: "150px" }}>
-                    {
-                        users.items.map((el: any) => {
-                            return <HomeSuggestUser username={el.login} profileImage={el.avatar_url} api_url={el.url} />
-                        })
-                    }
-                </ul>
+                <textarea 
+                    ref={inputRef} 
+                    value={username}
+                    placeholder="Type here"
+                    onChange={onChange} 
+                    onKeyPress={enterPress}
+                    onKeyUp={escapePress} 
+                />
+                {
+                    username && (
+                        <ul style={{height: "150px" }}>
+                            {
+                                users.items.map((el: any) => {
+                                    return <HomeSuggestUser username={el.login} profileImage={el.avatar_url} api_url={el.url} />
+                                })
+                            }
+                        </ul>
+                    )
+                }
             </div>
-            <Link to={`/searchresult/${username}`} className="search-button">
+            <Link to={username ? `/searchresult/${username}` : '.'} className="search-button">
                 Find
             </Link>
         </>
